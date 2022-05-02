@@ -8,20 +8,21 @@ import {HttpClientModule} from '@angular/common/http'
   styleUrls: ['./restaurant-dash.component.css']
 })
 export class RestaurantDashComponent implements OnInit {
-  title = 'restaurantApp';
+   title = 'restaurantApp';
    formValue !: FormGroup
 
-  constructor (private formBuilder:FormBuilder) { }
-  ngOnInit(): void {
-    this.formValue = this.formBuilder.group({
-    restaurantId: "",
-    name: [""],
-    email: [""],
-    mobile: [""],
-    address: [""],
-    services: [""]
-    })
-  }
+   constructor(private formBuilder: FormBuilder){}
+      ngOnInit(): void {
+      this.formValue = this.formBuilder.group({
+        name: [''],
+        email: [''],
+        mobile: [''],
+        address: [''],
+        services: [''],
+      });
+
+    }
+    addResto(){}
 }
 
 
