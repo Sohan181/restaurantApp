@@ -1,30 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Restaurant Application</a>
+    <a class="navbar-brand" href="/">Restaurant Application</a>
     <button
-      class="navbar-toggler"
+      class="btn btn-success"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
     >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <button
-      type="button"
-      class="btn btn-info"
-      data-toggle="modal"
-      data-target="#exampleModal"
-    >
-      Add Restaurant
+      Add Restaurent
     </button>
   </div>
 </nav>
-<app-restaurant-dash></app-restaurant-dash>
 
-<div class="jumbotron mt-5">
+<div class="jumbotron mt-5 rounded-3">
   <h2 class="display-4">Restaurant Management Application</h2>
   <p class="lead">
     This is a simple application build the keep track of the restaurants in the
@@ -43,7 +31,7 @@
     >
   </p>
 </div>
-
+<!-- Table Data  -->
 <table class="table mt-5">
   <thead>
     <tr>
@@ -80,18 +68,16 @@
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog"  role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button
           type="button"
-          class="close"
-          data-dismiss="modal"
+          class="btn-close"
+          data-bs-dismiss="modal"
           aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
+        ></button>
       </div>
       <div class="modal-body">
         <form [formGroup]="formValue"></form>
@@ -100,12 +86,13 @@
           <input
             type="text"
             class="form-control"
+            formControlName="restaurantId"
             id="restaurantId"
             aria-describedby="restaurantIdHelp"
             placeholder="Enter Restaurant Id"
           />
         </div>
-        <div class="form-group">
+        <div class="form-group my-2">
           <label for="name">Name</label>
           <input
             type="text"
@@ -146,19 +133,30 @@
           />
         </div>
         <div class="form-group">
-          <label for="services">Services</label>
-          <input
-            type="text"
+          <label for="services">Services</label><br />
+          <!-- <input
+            type="dropdown"
             class="form-control"
             formControlName="services"
             id="services"
             placeholder="Services"
-          />
+          /> -->
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Breakfast</a></li>
+              <li><a class="dropdown-item" href="#">Fast Food</a></li>
+              <li><a class="dropdown-item" href="#">Veg</a></li>
+              <li><a class="dropdown-item" href="#">Non-Veg</a></li>
+              <li><a class="dropdown-item" href="#">Both Veg Non-Veg</a></li>
+            </ul>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+        <button type="button" class="btn btn-light" data-dismiss="modal">
           Close
         </button>
         <button type="button" class="btn btn-primary">Save changes</button>
